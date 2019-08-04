@@ -14,8 +14,8 @@ def spline_Fixado(x,y,fpo,fpn):
     for i in range(0,num-1):
         h[i] = x[i+1] - x[i]
     #faça
-    #alfa[0] = (3*(y[1] - y[0]))/(h[0] - (3*fpo))
-    #alfa[0] = 3*fpn - (3*(y[num] - y[num-1]))/h[num-1]
+    alfa[0] = (3*(y[1] - y[0]))/(h[0] - (3*fpo))
+    alfa[n] = 3*fpn - (3*(y[num] - y[num-1]))/h[num-1]
     
     #passo 3
     for i in range(1,num-1):
@@ -43,4 +43,5 @@ def spline_Fixado(x,y,fpo,fpn):
         c[j] = z[j] -( mi[j] * c[j+1])
         b[j] = (y[j+1]-y[j])/(h[j] - (h[j]*(c[j+1] + 2*c[j]))/3)
         d[j] = (c[j+1] - c[j])/(3*h[j])
+    return [y,b,c,d]
         
